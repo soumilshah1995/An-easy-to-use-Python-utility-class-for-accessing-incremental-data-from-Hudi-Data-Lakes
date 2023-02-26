@@ -5,11 +5,9 @@ An easy-to-use Python utility class for accessing incremental data from Hudi Dat
 
 * One of the key features of Hudi is its support for incremental data processing. This means that Hudi can efficiently process only the changes that have occurred since the last time data was processed, rather than processing the entire dataset every time. This can result in significant performance improvements and reduced processing times.
 
-* Let's move on to learning how to use Hudi Incremental Data Processing to power downstream systems. Search applications like elastic search, relational databases, and non-relational databases are examples of downstream systems.
+* Let's move on to learning how to use Hudi Incremental Data Processing to power downstream systems. Search applications like elastic search, relational databases, and non-relational databases are examples of downstream systems.An easy-to-use Python utility class for accessing incremental data from Hudi Data Lakes. Code logic can be shown in below flow chart
 
-* An easy-to-use Python utility class for accessing incremental data from Hudi Data Lakes. Code logic can be shown in below flow chart
-
-* Please fork repository and submit a merge request if you notice any flaws or ideas to improve the template.
+#### Please fork repository and submit a merge request if you notice any flaws or ideas to improve the template.
 
 
 ------------------------------------------------
