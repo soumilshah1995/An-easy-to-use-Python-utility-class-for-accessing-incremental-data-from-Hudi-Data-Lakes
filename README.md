@@ -9,14 +9,15 @@ An easy-to-use Python utility class for accessing incremental data from Hudi Dat
 
 * An easy-to-use Python utility class for accessing incremental data from Hudi Data Lakes. Code logic can be shown in below flow chart
 
-### Please fork repository and submit a merge request if you notice any flaws or ideas to improve the template.
+* Please fork repository and submit a merge request if you notice any flaws or ideas to improve the template.
 
 
-
-
+------------------------------------------------
 
 
 ![sa drawio](https://user-images.githubusercontent.com/39345855/221435952-76d4c80e-1043-40fc-b5d7-42f042e7181c.png)
+
+------------------------------------------------
 
 # Demo
 
