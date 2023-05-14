@@ -31,7 +31,7 @@ An easy-to-use Python utility class for accessing incremental data from Hudi Dat
 #### Meta Data File on S3
 ![image](https://user-images.githubusercontent.com/39345855/221436316-7ab9ef1c-7ec4-415c-839c-884c1db4fd15.png)
 
-####  performing one moore inserts
+####  performing one more inserts
 ![image](https://user-images.githubusercontent.com/39345855/221436341-7f26521f-1d35-43e9-9a7a-e1e3930d31bc.png)
 
 #### Running template
