@@ -12,8 +12,9 @@ An easy-to-use Python utility class for accessing incremental data from Hudi Dat
 
 ------------------------------------------------
 
+# Code Logic 
+![incremental drawio](https://github.com/soumilshah1995/An-easy-to-use-Python-utility-class-for-accessing-incremental-data-from-Hudi-Data-Lakes/assets/39345855/36285e18-3644-49c1-b6e4-08cff21772a5)
 
-![sa drawio](https://user-images.githubusercontent.com/39345855/221435952-76d4c80e-1043-40fc-b5d7-42f042e7181c.png)
 
 ------------------------------------------------
 
