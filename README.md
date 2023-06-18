@@ -13,7 +13,7 @@ Please fork the repository and submit a merge request if you notice any flaws or
 
 ------------------------------------------------
 ## How To Use
-![Snap](https://github.com/soumilshah1995/An-easy-to-use-Python-utility-class-for-accessing-incremental-data-from-Hudi-Data-Lakes/assets/39345855/285176f3-ff87-4d1c-afd6-ecb2fdf75f34)
+![Snap (1)](https://github.com/soumilshah1995/An-easy-to-use-Python-utility-class-for-accessing-incremental-data-from-Hudi-Data-Lakes/assets/39345855/6d373895-7db3-4490-9f09-725740ca3a61)
 
 ------------------------------------------------
 
