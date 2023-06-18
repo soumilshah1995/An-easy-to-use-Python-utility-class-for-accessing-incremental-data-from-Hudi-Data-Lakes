@@ -26,6 +26,7 @@ Please fork the repository and submit a merge request if you notice any flaws or
 ## PlantUML
 ![image](https://github.com/soumilshah1995/An-easy-to-use-Python-utility-class-for-accessing-incremental-data-from-Hudi-Data-Lakes/assets/39345855/9cb8dfd4-5115-41fe-8bd4-3cc742ae53f1)
 
+* NOTE| Make sure your Enviroment varibales are set for AWS Access and secret keys 
 
 ------------------------------------------------
 
