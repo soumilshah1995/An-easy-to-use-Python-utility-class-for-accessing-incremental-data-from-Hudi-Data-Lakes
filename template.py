@@ -1,15 +1,9 @@
-import ast
-
 try:
-    import sys
-    import datetime
+    import ast, sys, datetime, re, os, json
     from ast import literal_eval
-    import re
     import boto3
     from pyspark.sql import SparkSession
     from pyspark import SparkConf, SparkContext
-    import os
-    import json
     from dataclasses import dataclass
 except Exception as e:
     pass
@@ -146,6 +140,10 @@ class HUDIIncrementalReader(AWSS3):
             Key=file_name, Response=json.dumps(json_data)
         )
 
+    def clean_check_point(self):
+        file_name = f"metadata/{self.hudi_settings.table_name}.json"
+        self.delete_object(Key=file_name)
+
     def __get_begin_commit(self):
         self.spark.read.format("hudi").load(self.hudi_settings.path).createOrReplaceTempView("hudi_snapshot")
         commits = list(map(lambda row: row[0], self.spark.sql(
@@ -178,7 +176,6 @@ class HUDIIncrementalReader(AWSS3):
     def __run(self):
         """Check the metadata file"""
         flag = self.__check_meta_data_file()
-
         """if metadata files exists load the last commit and start inc loading from that commit """
         if flag:
             meta_data = json.loads(self.__read_meta_data())
@@ -199,7 +196,7 @@ class HUDIIncrementalReader(AWSS3):
                     "last_processed_commit": last_commit,
                     "table_name": self.hudi_settings.table_name,
                     "path": self.hudi_settings.path,
-                    "inserted_time": datetime.datetime.now().__str__(),
+                    "inserted_time": datetime.now().__str__(),
 
                 }))
                 return df
@@ -219,7 +216,7 @@ class HUDIIncrementalReader(AWSS3):
                 "last_processed_commit": last_commit,
                 "table_name": self.hudi_settings.table_name,
                 "path": self.hudi_settings.path,
-                "inserted_time": datetime.datetime.now().__str__(),
+                "inserted_time": datetime.now().__str__(),
 
             }))
 
@@ -235,19 +232,9 @@ class HUDIIncrementalReader(AWSS3):
 
 
 def main():
-    bucket = 'BUCKET NAME'
-    os.environ['AWS_ACCESS_KEY'] = '<ACCESS KEY>'
-    os.environ['AWS_SECRET_KEY'] = '<SECRET KEY>'
-    os.environ['AWS_REGION'] = 'us-east-1'
-
-    SUBMIT_ARGS = "--packages org.apache.hudi:hudi-spark3.3-bundle_2.12:0.12.1 pyspark-shell"
-    os.environ["PYSPARK_SUBMIT_ARGS"] = SUBMIT_ARGS
-    os.environ['PYSPARK_PYTHON'] = sys.executable
-    os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
-
-    db_name = "hudidb"
-    table_name = "hudi_inc_table"
-    path = f"file:///C:/tmp/{db_name}/{table_name}"
+    bucket = 'BUCKET THAT WILL BE USE FOR CHECKPOINT PURPOSES'
+    table_name = "<TABLE NAME GOES HERE>"
+    path = f"PATH TO HUDI DATALAKE"
 
     spark = SparkSession.builder \
         .config('spark.serializer', 'org.apache.spark.serializer.KryoSerializer') \
@@ -256,12 +243,14 @@ def main():
         .config('spark.sql.hive.convertMetastoreParquet', 'false') \
         .getOrCreate()
 
-    helper = HUDIIncrementalReader(bucket=bucket,
-                                   hudi_settings=HUDISettings(table_name='hudi_inc_table', path=path),
-                                   spark_session=spark
-                                   )
+    helper = HUDIIncrementalReader(
+        bucket=bucket,
+        hudi_settings=HUDISettings(
+            table_name=table_name,
+            path=path),
+        spark_session=spark
+    )
     df = helper.read()
-    print(df.show())
 
 
 main()
