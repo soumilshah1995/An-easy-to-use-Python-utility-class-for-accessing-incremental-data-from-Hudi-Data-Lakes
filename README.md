@@ -15,6 +15,9 @@ An easy-to-use Python utility class for accessing incremental data from Hudi Dat
 # Code Logic 
 ![incremental drawio](https://github.com/soumilshah1995/An-easy-to-use-Python-utility-class-for-accessing-incremental-data-from-Hudi-Data-Lakes/assets/39345855/36285e18-3644-49c1-b6e4-08cff21772a5)
 
+# PlantUML
+![image](https://github.com/soumilshah1995/An-easy-to-use-Python-utility-class-for-accessing-incremental-data-from-Hudi-Data-Lakes/assets/39345855/9cb8dfd4-5115-41fe-8bd4-3cc742ae53f1)
+
 
 ------------------------------------------------
 
